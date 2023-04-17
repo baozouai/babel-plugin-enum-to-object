@@ -52,9 +52,17 @@ enum Status {
 
 // =>
 
-var Status = {
+// 默认 reflect 是 true
+const Status = {
   PAID: 0,
-  UN_PAID: 1
+  0: 'PAID',
+  UN_PAID: 1,
+  1: 'UN_PAID'
+}
+//  设置 reflect 为false
+const Status = {
+  PAID: 0,
+  UN_PAID: 1,
 }
 ```
 
