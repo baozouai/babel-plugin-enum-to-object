@@ -1,0 +1,77 @@
+{
+  "name": "babel-plugin-enum-to-object",
+  "version": "1.0.0",
+  "author": "baozouai <baozouai@gmail.com>",
+  "description": "transform enum to object for better tree shaking",
+  "homepage": "https://github.com/baozouai/babel-plugin-enum-to-object",
+  "main": "dist/babel-plugin-enum-to-object.js",
+  "types": "dist/babel-plugin-enum-to-object.d.ts",
+  "files": [
+    "dist/"
+  ],
+  "keywords": [
+    "webpack",
+    "plugin",
+    "enum",
+    "typescript",
+    "node",
+    "reduce enum"
+  ],
+  "scripts": {
+    "clean": "rm -rf dist",
+    "lint": "eslint --cache --fix",
+    "build": "tsc",
+    "test": "jest",
+    "release": "npm run clean && npm run build && npm publish",
+    "prepare": "husky install"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "./src/**/*.{ts,js}": [
+      "yarn lint"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/baozouai/babel-plugin-enum-to-object.git"
+  },
+  "bugs": {
+    "url": "https://github.com/baozouai/babel-plugin-enum-to-object/issues"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@antfu/eslint-config": "^0.36.0",
+    "@babel/core": "^7.21.4",
+    "@babel/preset-env": "^7.21.4",
+    "@babel/types": "^7.21.4",
+    "@commitlint/cli": "^17.4.4",
+    "@commitlint/config-conventional": "^17.4.4",
+    "@types/babel__core": "^7.20.0",
+    "@types/babel__helper-plugin-utils": "^7.10.0",
+    "babel-jest": "^29.5.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^8.35.0",
+    "husky": "^8.0.3",
+    "jest": "^29.5.0",
+    "lint-staged": "^13.1.2",
+    "typescript": "^4.9.5"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org",
+    "access": "public"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    }
+  },
+  "dependencies": {
+    "@babel/helper-plugin-utils": "^7.20.2",
+    "@babel/plugin-syntax-typescript": "^7.21.4"
+  }
+}

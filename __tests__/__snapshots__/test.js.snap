@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Transforms NumericLiteral enum  with reflect false 1`] = `
+"export const Direction = {
+  Up: 0,
+  Down: 1,
+  Left: 2,
+  Right: 3
+};"
+`;
+
+exports[`Transforms NumericLiteral enum 1`] = `
+"export const Direction = {
+  Up: 0,
+  0: "Up",
+  Down: 1,
+  1: "Down",
+  Left: 2,
+  2: "Left",
+  Right: 3,
+  3: "Right"
+};"
+`;
+
+exports[`Transforms string enum  with reflect false 1`] = `
+"export const Direction = {
+  Up: 'Up',
+  Down: 'Down',
+  Left: 'Left',
+  Right: 'Right'
+};"
+`;
+
+exports[`Transforms string enum 1`] = `
+"export const Direction = {
+  Up: 'Up',
+  Down: 'Down',
+  Left: 'Left',
+  Right: 'Right'
+};"
+`;
+
+exports[`Transforms string number mix  with reflect false 1`] = `
+"export const Status = {
+  PAID: 0,
+  UNPAID: '21',
+  PART: 44,
+  HALF: 45
+};"
+`;
+
+exports[`Transforms string number mix 1`] = `
+"export const Status = {
+  PAID: 0,
+  0: "PAID",
+  UNPAID: '21',
+  21: "UNPAID",
+  PART: 44,
+  44: "PART",
+  HALF: 45,
+  45: "HALF"
+};"
+`;
