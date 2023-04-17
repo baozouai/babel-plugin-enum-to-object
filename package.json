@@ -1,6 +1,6 @@
 {
   "name": "babel-plugin-enum-to-object",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "author": "baozouai <baozouai@gmail.com>",
   "description": "transform enum to object for better tree shaking",
   "homepage": "https://github.com/baozouai/babel-plugin-enum-to-object",
