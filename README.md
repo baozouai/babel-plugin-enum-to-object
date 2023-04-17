@@ -108,7 +108,8 @@ npm i babel-plugin-enum-to-object -D
 module.exports = {
 
   plugins: [
-    isProduction && 'enum-to-object'
+    // if isProduction add this
+    ['enum-to-object', { reflect: true or false }]
   ],
 }
 ```
