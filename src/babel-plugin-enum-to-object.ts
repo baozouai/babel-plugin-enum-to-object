@@ -1,8 +1,8 @@
 import { declare } from '@babel/helper-plugin-utils'
 // @ts-ignore
 import syntaxTypeScript from '@babel/plugin-syntax-typescript'
-import type { NumericLiteral, ObjectProperty, StringLiteral } from '@babel/types'
-
+import type { BinaryExpression } from '@babel/types'
+import * as t from '@babel/types'
 interface BabelPluginEnumToObjectOptions {
   /**
    * need reflect ? default true
@@ -25,6 +25,61 @@ interface BabelPluginEnumToObjectOptions {
   reflect?: boolean
 }
 
+function getValueFromBinaryExpression(node: BinaryExpression, mapValue: Map<string | number, number | string>) {
+  const { left, operator, right } = node
+  let leftValue = 0
+  let rightValue = 0
+
+  if (t.isBinaryExpression(left))
+    leftValue = getValueFromBinaryExpression(left, mapValue)
+  else if (t.isNumericLiteral(left))
+    leftValue = left.value
+  else if (t.isIdentifier(left))
+    leftValue = +mapValue.get(left.name)!
+  if (t.isBinaryExpression(right))
+    rightValue = getValueFromBinaryExpression(right, mapValue)
+  else if (t.isNumericLiteral(right))
+    rightValue = right.value
+  else if (t.isIdentifier(right))
+    rightValue = +mapValue.get(right.name)!
+  if (operator === '+')
+    return leftValue + rightValue
+
+  if (operator === '-')
+    return leftValue - rightValue
+
+  if (operator === '*')
+    return leftValue * rightValue
+
+  if (operator === '/')
+    return leftValue / rightValue
+
+  if (operator === '%')
+    return leftValue % rightValue
+
+  if (operator === '**')
+    return leftValue ** rightValue
+
+  if (operator === '<<')
+    return leftValue << rightValue
+
+  if (operator === '>>')
+    return leftValue >> rightValue
+
+  if (operator === '>>>')
+    return leftValue >>> rightValue
+
+  if (operator === '|')
+    return leftValue | rightValue
+
+  if (operator === '^')
+    return leftValue ^ rightValue
+
+  if (operator === '&')
+    return leftValue & rightValue
+
+  return 0
+}
 export default declare<BabelPluginEnumToObjectOptions>((api, options) => {
   api.assertVersion(7)
   const { types: t } = api
@@ -37,8 +92,9 @@ export default declare<BabelPluginEnumToObjectOptions>((api, options) => {
       TSEnumDeclaration(path) {
         const { node } = path
         const { id, members } = node
-        const objProperties: ObjectProperty[] = []
         let preNum = -1
+        const targetMap = new Map<string | number, number | string>()
+
         members.forEach((member) => {
           let { initializer, id: memberId } = member
           if (!initializer) {
@@ -48,27 +104,29 @@ export default declare<BabelPluginEnumToObjectOptions>((api, options) => {
           else if (t.isNumericLiteral(initializer)) {
             preNum = initializer.value
           }
-          const objProerty = t.objectProperty(memberId, initializer)
-          objProperties.push(objProerty)
+          let key = ''
+          if (t.isIdentifier(memberId))
+            key = memberId.name
+          else
+            key = memberId.value
 
-          if (reflect) {
-            // add reflect
-            const key = t.identifier(String((objProerty.value as StringLiteral | NumericLiteral).value))
-            const value = t.stringLiteral(t.isIdentifier(memberId) ? memberId.name : memberId.value)
-            if (key.name === value.value)
-              return
-            objProperties.push(
-              t.objectProperty(
-                t.identifier(String((objProerty.value as StringLiteral | NumericLiteral).value)),
-                t.stringLiteral(t.isIdentifier(memberId) ? memberId.name : memberId.value),
-              ),
-            )
-          }
+          let value: number | string = preNum
+          if (t.isStringLiteral(initializer))
+            value = initializer.value
+
+          else if (t.isBinaryExpression(initializer))
+            value = getValueFromBinaryExpression(initializer, targetMap)
+
+          targetMap.set(key, value)
+
+          if (reflect)
+            targetMap.set(value, key)
         })
-
         const obj = t.variableDeclarator(
           id,
-          t.objectExpression(objProperties),
+          t.objectExpression(
+            [...targetMap.entries()].map(([key, value]) => t.objectProperty(t.identifier(String(key)), typeof value === 'string' ? t.stringLiteral(value) : t.numericLiteral(value))),
+          ),
         )
         const constObjVariable = t.variableDeclaration('const', [obj])
 

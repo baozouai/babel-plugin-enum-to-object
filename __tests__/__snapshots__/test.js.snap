@@ -12,13 +12,38 @@ exports[`Transforms NumericLiteral enum  with reflect false 1`] = `
 exports[`Transforms NumericLiteral enum 1`] = `
 "export const Direction = {
   Up: 0,
-  0: "Up",
+  0: 'Up',
   Down: 1,
-  1: "Down",
+  1: 'Down',
   Left: 2,
-  2: "Left",
+  2: 'Left',
   Right: 3,
-  3: "Right"
+  3: 'Right'
+};"
+`;
+
+exports[`Transforms calc enum  with reflect false 1`] = `
+"export const MyEnum = {
+  A: 0,
+  B: 1,
+  C: 20,
+  D: 21,
+  E: 4200
+};"
+`;
+
+exports[`Transforms calc enum 1`] = `
+"export const MyEnum = {
+  A: 0,
+  0: 'A',
+  B: 1,
+  1: 'B',
+  C: 20,
+  20: 'C',
+  D: 21,
+  21: 'D',
+  E: 4200,
+  4200: 'E'
 };"
 `;
 
@@ -52,12 +77,12 @@ exports[`Transforms string number mix  with reflect false 1`] = `
 exports[`Transforms string number mix 1`] = `
 "export const Status = {
   PAID: 0,
-  0: "PAID",
+  0: 'PAID',
   UNPAID: '21',
-  21: "UNPAID",
+  21: 'UNPAID',
   PART: 44,
-  44: "PART",
+  44: 'PART',
   HALF: 45,
-  45: "HALF"
+  45: 'HALF'
 };"
 `;

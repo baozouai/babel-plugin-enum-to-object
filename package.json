@@ -33,7 +33,7 @@
   },
   "lint-staged": {
     "./src/**/*.{ts,js}": [
-      "yarn lint"
+      "npm run lint"
     ]
   },
   "repository": {
@@ -73,5 +73,6 @@
   "dependencies": {
     "@babel/helper-plugin-utils": "^7.20.2",
     "@babel/plugin-syntax-typescript": "^7.21.4"
-  }
+  },
+  "engines" : { "node" : ">=14.18.0" }
 }
