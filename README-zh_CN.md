@@ -18,7 +18,7 @@
 
 
 
-[test-badge]: https://github.com/baozouai/babel-plugin-enum-to-object/actions/workflows/test.yml/badge.svg
+[test-badge]: https://github.com/baozouai/babel-plugin-enum-to-object/actions/workflows/ci.yml/badge.svg
 
 [codecov-badge]: https://codecov.io/github/baozouai/babel-plugin-enum-to-object/branch/master/graph/badge.svg
 
