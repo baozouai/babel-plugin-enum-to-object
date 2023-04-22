@@ -38,6 +38,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@babel/generator": "^7.21.4",
     "@babel/helper-plugin-utils": "^7.20.2",
     "@babel/plugin-syntax-typescript": "^7.21.4"
   },
@@ -49,6 +50,7 @@
     "@commitlint/cli": "^17.4.4",
     "@commitlint/config-conventional": "^17.4.4",
     "@types/babel__core": "^7.20.0",
+    "@types/babel__generator": "^7.6.4",
     "@types/babel__helper-plugin-utils": "^7.10.0",
     "@types/node": "^18.15.13",
     "@vitest/coverage-c8": "^0.30.1",

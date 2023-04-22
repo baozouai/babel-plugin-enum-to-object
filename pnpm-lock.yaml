@@ -1,6 +1,9 @@
 lockfileVersion: '6.0'
 
 dependencies:
+  '@babel/generator':
+    specifier: ^7.21.4
+    version: 7.21.4
   '@babel/helper-plugin-utils':
     specifier: ^7.20.2
     version: 7.20.2
@@ -30,6 +33,9 @@ devDependencies:
   '@types/babel__core':
     specifier: ^7.20.0
     version: 7.20.0
+  '@types/babel__generator':
+    specifier: ^7.6.4
+    version: 7.6.4
   '@types/babel__helper-plugin-utils':
     specifier: ^7.10.0
     version: 7.10.0

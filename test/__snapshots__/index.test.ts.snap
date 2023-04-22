@@ -2,118 +2,171 @@
 
 exports[`Transforms NumericLiteral enum  with reflect false 1`] = `
 "export const Direction = {
-  Up: 0,
-  Down: 1,
-  Left: 2,
-  Right: 3
+  'Up': 0,
+  'Down': 1,
+  'Left': 2,
+  'Right': 3
 };"
 `;
 
 exports[`Transforms NumericLiteral enum 1`] = `
 "export const Direction = {
-  Up: 0,
-  0: 'Up',
-  Down: 1,
-  1: 'Down',
-  Left: 2,
-  2: 'Left',
-  Right: 3,
-  3: 'Right'
+  'Up': 0,
+  '0': 'Up',
+  'Down': 1,
+  '1': 'Down',
+  'Left': 2,
+  '2': 'Left',
+  'Right': 3,
+  '3': 'Right'
 };"
 `;
 
 exports[`Transforms calc enum  with reflect false 1`] = `
 "export const MyEnum = {
-  A: 0,
-  B: 1,
-  C: 20,
-  D: 21,
-  E: 4200,
-  F: 4199,
-  G: 4202,
-  H: 2101,
-  I: 5,
-  J: 74088000000,
-  K: 16800,
-  L: 1050,
-  M: 2100,
-  N: 1,
-  O: 4203,
-  P: 4202
+  'A': 0,
+  'B': 1,
+  'C': 20,
+  'D': 21,
+  'E': 4200,
+  'F': 4199,
+  'G': 4202,
+  'H': 2101,
+  'I': 5,
+  'J': 74088000000,
+  'K': 16800,
+  'L': 1050,
+  'M': 2100,
+  'N': 1,
+  'O': 4203,
+  'P': 4202
 };"
 `;
 
 exports[`Transforms calc enum 1`] = `
 "export const MyEnum = {
-  A: 0,
-  0: 'A',
-  B: 1,
-  1: 'N',
-  C: 20,
-  20: 'C',
-  D: 21,
-  21: 'D',
-  E: 4200,
-  4200: 'E',
-  F: 4199,
-  4199: 'F',
-  G: 4202,
-  4202: 'P',
-  H: 2101,
-  2101: 'H',
-  I: 5,
-  5: 'I',
-  J: 74088000000,
-  74088000000: 'J',
-  K: 16800,
-  16800: 'K',
-  L: 1050,
-  1050: 'L',
-  M: 2100,
-  2100: 'M',
-  N: 1,
-  O: 4203,
-  4203: 'O',
-  P: 4202
+  'A': 0,
+  '0': 'A',
+  'B': 1,
+  '1': 'N',
+  'C': 20,
+  '20': 'C',
+  'D': 21,
+  '21': 'D',
+  'E': 4200,
+  '4200': 'E',
+  'F': 4199,
+  '4199': 'F',
+  'G': 4202,
+  '4202': 'P',
+  'H': 2101,
+  '2101': 'H',
+  'I': 5,
+  '5': 'I',
+  'J': 74088000000,
+  '74088000000': 'J',
+  'K': 16800,
+  '16800': 'K',
+  'L': 1050,
+  '1050': 'L',
+  'M': 2100,
+  '2100': 'M',
+  'N': 1,
+  'O': 4203,
+  '4203': 'O',
+  'P': 4202
+};"
+`;
+
+exports[`Transforms complex enum  with reflect false 1`] = `
+"export const Other = {
+  'A': 4,
+  'B': 5,
+  'C': 6
+};
+export const MyEnum = {
+  'GP-2120TU': Other.A,
+  'GP-M32B': Other.B,
+  'GP-R222C': Other.C
+};"
+`;
+
+exports[`Transforms complex enum 1`] = `
+"export const Other = {
+  'A': 4,
+  '4': 'A',
+  'B': 5,
+  '5': 'B',
+  'C': 6,
+  '6': 'C'
+};
+export const MyEnum = {
+  'GP-2120TU': Other.A,
+  [Other.A]: 'GP-2120TU',
+  'GP-M32B': Other.B,
+  [Other.B]: 'GP-M32B',
+  'GP-R222C': Other.C,
+  [Other.C]: 'GP-R222C'
+};"
+`;
+
+exports[`Transforms initByOtherIdentifiter enum 1`] = `
+"const WW = 2;
+export const MyEnum = {
+  'GP-2120TU': WW,
+  [WW]: 'GP-2120TU',
+  'GP-M32B': 3,
+  '3': 'GP-M32B',
+  'GP-R222C': 4,
+  '4': 'GP-R222C'
+};"
+`;
+
+exports[`Transforms initByOtherIdentifiter enum false 1`] = `
+"const WW = 2;
+export const MyEnum = {
+  'GP-2120TU': WW,
+  'GP-M32B': 3,
+  'GP-R222C': 4
 };"
 `;
 
 exports[`Transforms string enum  with reflect false 1`] = `
 "export const Direction = {
-  Up: 'Up',
-  Down: 'Down',
-  Left: 'Left',
-  Right: 'Right'
+  'Up': 'Up',
+  'Down': 'Down',
+  'Left': 'Left',
+  'Right': 'Right'
 };"
 `;
 
 exports[`Transforms string enum 1`] = `
 "export const Direction = {
-  Up: 'Up',
-  Down: 'Down',
-  Left: 'Left',
-  Right: 'Right'
+  'Up': 'Up',
+  'Down': 'Down',
+  'Left': 'Left',
+  'Right': 'Right'
 };"
 `;
 
 exports[`Transforms string number mix  with reflect false 1`] = `
 "export const Status = {
-  PAID: 0,
-  UNPAID: '21',
-  PART: 44,
-  HALF: 45
+  'PAID': 0,
+  'UNPAID': '21',
+  'PART': 44,
+  'HALF': 45
 };"
 `;
 
 exports[`Transforms string number mix 1`] = `
 "export const Status = {
-  PAID: 0,
-  0: 'PAID',
-  UNPAID: '21',
-  21: 'UNPAID',
-  PART: 44,
-  44: 'PART',
-  HALF: 45,
-  45: 'HALF'
+  'PAID': 0,
+  '0': 'PAID',
+  'UNPAID': '21',
+  '21': 'UNPAID',
+  'PART': 44,
+  '44': 'PART',
+  'HALF': 45,
+  '45': 'HALF'
 };"
 `;

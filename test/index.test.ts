@@ -63,6 +63,28 @@ const calcEnumInput = `export enum MyEnum {
 }
 `
 
+const complexEnumInput = `
+export enum Other {
+  A = 4,
+  B = 5,
+  C = 6,
+}
+export enum MyEnum {
+  'GP-2120TU' = Other.A,
+  'GP-M32B' = Other.B,
+  'GP-R222C' = Other.C,
+}
+`
+
+const initByOtherIdentifiterEnumInput = `
+const WW = 2
+export enum MyEnum {
+  'GP-2120TU' = WW,
+  'GP-M32B' = 3,
+  'GP-R222C',
+}
+`
+
 it('Transforms NumericLiteral enum', () => {
   const { code } = transformSync(numberEnumInput, defaultOptions)!
   expect(code).toMatchSnapshot()
@@ -83,6 +105,14 @@ it('Transforms calc enum', () => {
   expect(code).toMatchSnapshot()
 })
 
+it('Transforms complex enum', () => {
+  const { code } = transformSync(complexEnumInput, defaultOptions)!
+  expect(code).toMatchSnapshot()
+})
+it('Transforms initByOtherIdentifiter enum', () => {
+  const { code } = transformSync(initByOtherIdentifiterEnumInput, defaultOptions)!
+  expect(code).toMatchSnapshot()
+})
 it('Transforms NumericLiteral enum  with reflect false', () => {
   const { code } = transformSync(numberEnumInput, noReflectOptions)!
   expect(code).toMatchSnapshot()
@@ -100,5 +130,15 @@ it('Transforms string number mix  with reflect false', () => {
 
 it('Transforms calc enum  with reflect false', () => {
   const { code } = transformSync(calcEnumInput, noReflectOptions)!
+  expect(code).toMatchSnapshot()
+})
+
+it('Transforms complex enum  with reflect false', () => {
+  const { code } = transformSync(complexEnumInput, noReflectOptions)!
+  expect(code).toMatchSnapshot()
+})
+
+it('Transforms initByOtherIdentifiter enum false', () => {
+  const { code } = transformSync(initByOtherIdentifiterEnumInput, noReflectOptions)!
   expect(code).toMatchSnapshot()
 })
