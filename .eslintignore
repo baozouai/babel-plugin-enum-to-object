@@ -1,1 +1,5 @@
 *.md
+.vscode
+test
+vitest.config.ts
+dist

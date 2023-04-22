@@ -5,15 +5,22 @@
 
 <div align="center">
 
+[![NPM version][npm-image]][npm-url] ![NPM downloads][download-image]
 
- [![NPM version][npm-image]][npm-url] ![NPM downloads][download-image]
+![Test][test-badge] ![codecov][codecov-badge]
+
 
 [npm-image]: https://img.shields.io/npm/v/babel-plugin-enum-to-object.svg?style=flat-square
 [npm-url]: http://npmjs.org/package/babel-plugin-enum-to-object
 
 
 [download-image]: https://img.shields.io/npm/dm/babel-plugin-enum-to-object.svg?style=flat-square
-[download-url]: https://npmjs.org/package/babel-plugin-enum-to-object
+
+
+
+[test-badge]: https://github.com/baozouai/babel-plugin-enum-to-object/actions/workflows/test.yml/badge.svg
+
+[codecov-badge]: https://codecov.io/github/baozouai/babel-plugin-enum-to-object/branch/master/graph/badge.svg
 
 
 </div>

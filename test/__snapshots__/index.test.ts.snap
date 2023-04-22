@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`Transforms NumericLiteral enum  with reflect false 1`] = `
 "export const Direction = {
@@ -12,13 +12,69 @@ exports[`Transforms NumericLiteral enum  with reflect false 1`] = `
 exports[`Transforms NumericLiteral enum 1`] = `
 "export const Direction = {
   Up: 0,
-  0: "Up",
+  0: 'Up',
   Down: 1,
-  1: "Down",
+  1: 'Down',
   Left: 2,
-  2: "Left",
+  2: 'Left',
   Right: 3,
-  3: "Right"
+  3: 'Right'
+};"
+`;
+
+exports[`Transforms calc enum  with reflect false 1`] = `
+"export const MyEnum = {
+  A: 0,
+  B: 1,
+  C: 20,
+  D: 21,
+  E: 4200,
+  F: 4199,
+  G: 4202,
+  H: 2101,
+  I: 5,
+  J: 74088000000,
+  K: 16800,
+  L: 1050,
+  M: 2100,
+  N: 1,
+  O: 4203,
+  P: 4202
+};"
+`;
+
+exports[`Transforms calc enum 1`] = `
+"export const MyEnum = {
+  A: 0,
+  0: 'A',
+  B: 1,
+  1: 'N',
+  C: 20,
+  20: 'C',
+  D: 21,
+  21: 'D',
+  E: 4200,
+  4200: 'E',
+  F: 4199,
+  4199: 'F',
+  G: 4202,
+  4202: 'P',
+  H: 2101,
+  2101: 'H',
+  I: 5,
+  5: 'I',
+  J: 74088000000,
+  74088000000: 'J',
+  K: 16800,
+  16800: 'K',
+  L: 1050,
+  1050: 'L',
+  M: 2100,
+  2100: 'M',
+  N: 1,
+  O: 4203,
+  4203: 'O',
+  P: 4202
 };"
 `;
 
@@ -52,12 +108,12 @@ exports[`Transforms string number mix  with reflect false 1`] = `
 exports[`Transforms string number mix 1`] = `
 "export const Status = {
   PAID: 0,
-  0: "PAID",
+  0: 'PAID',
   UNPAID: '21',
-  21: "UNPAID",
+  21: 'UNPAID',
   PART: 44,
-  44: "PART",
+  44: 'PART',
   HALF: 45,
-  45: "HALF"
+  45: 'HALF'
 };"
 `;
